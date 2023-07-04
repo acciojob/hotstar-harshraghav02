@@ -53,7 +53,7 @@ public class WebSeriesService {
         productionHouse.setRatings(newRating);
 
         productionHouseRepository.save(productionHouse);
-        webSeriesRepository.save(webSeries);
+        //WebSeries savedWebseries = webSeriesRepository.save(webSeries);
         return webSeries.getId();
     }
 
