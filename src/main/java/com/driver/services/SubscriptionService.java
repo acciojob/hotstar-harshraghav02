@@ -60,16 +60,9 @@ public class SubscriptionService {
 
         User user = userRepository.findById(userId).get();
 
-        if(user.getSubscription() == null){
-            SubscriptionEntryDto subscriptionEntryDto = new SubscriptionEntryDto();
-            subscriptionEntryDto.setSubscriptionType(SubscriptionType.BASIC);
-            subscriptionEntryDto.setUserId(userId);
-            subscriptionEntryDto.setNoOfScreensRequired(150);
 
-            return buySubscription(subscriptionEntryDto);
-        }
 
-        else if(user.getSubscription().getSubscriptionType().equals(SubscriptionType.BASIC)){
+        if(user.getSubscription().getSubscriptionType().equals(SubscriptionType.BASIC)){
             // upgrade to PRO
 
             int presentAmount = user.getSubscription().getTotalAmountPaid();
